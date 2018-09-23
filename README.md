@@ -11,7 +11,7 @@ Create and push a new Spring Boot project to GitHub.
 
 ### Run it
 
-curl -L xxx | sh
+https://raw.githubusercontent.com/abedurftig/spring-boot-on-github/master/create_new.sh | sh
 
 ### Resources
 
