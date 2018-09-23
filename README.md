@@ -8,7 +8,7 @@ Create and push a new Spring Boot project to GitHub.
 
 ### Setup
 
-- Create a `Personal API Token` in your GitHub account (the scope should be `repo:public_repo`(https://github.com/settings/tokens/new)
+- Create a `Personal API Token` in your GitHub account (the scope should be `repo:public_repo`) --> [Go to GitHub](https://github.com/settings/tokens/new)
 - Define an env variable `GITHUB_API_TOKEN` and set it to the `Personal API Token`
 - Define an env variable `GITHUB_USER` and set it to your GitHub username
 
