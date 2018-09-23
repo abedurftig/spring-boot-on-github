@@ -51,9 +51,9 @@ echo "-d packageName=$PARAM_ROOT"
 echo "-d javaVersion=$PARAM_JAVA"
 echo "-d bootVersion=$PARAM_BOOT"
 
-read -e -p "Are you happy? [Y/n] " YN
+read -e -p "Are you happy? [Y/n] " HAPPY
 
-if [ "$YN" = "y" ] || [ "$YN" = "Y" ] || [ "$YN" = "" ]
+if [ "$HAPPY" = "y" ] || [ "$HAPPY" = "Y" ] || [ "$HAPPY" = "" ]
 then
     echo "All right. Let's continue..."
 else
@@ -91,11 +91,27 @@ https://api.github.com/user/repos &> /dev/null
 
 echo "Init local Git repository"
 git init
-git add .
-git commit -m "Initial commit"
 echo "Setting remote to 'https://github.com/$GITHUB_USER/$PARAM_PROJECT_NAME.git'"
 git remote add origin https://github.com/$GITHUB_USER/$PARAM_PROJECT_NAME.git
-echo "Pushing to the GitHub repository"
+
+read -e -p "Do you want to commit and push now? [Y/n] " PUSH
+
+if [ "$PUSH" = "y" ] || [ "$PUSH" = "Y" ] || [ "$PUSH" = "" ]
+then
+    echo "All right. Let's continue..."
+else
+    echo "Ok. You can do manually later. Just use."
+    echo "git add ."
+    echo 'git commit -m "Initial commit"'
+    echo "git push -u origin master"
+    exit 0
+fi
+
+echo "Commit to local repository"
+git add .
+git commit -m "Initial commit"
+
+echo "Push to the GitHub repository"
 git push -u origin master
 
 echo "Done."
