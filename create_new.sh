@@ -22,4 +22,7 @@ git commit -m "Initial commit"
 git remote add origin https://github.com/$GITHUB_USER/$GITHUB_NAME.git
 git push -u origin master
 
+echo "Cleaning up"
+rm ../$GITHUB_NAME.zip
+
 echo "Done."
